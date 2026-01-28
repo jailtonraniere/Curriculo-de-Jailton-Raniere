@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 
 interface HeroProps {
   profileImage: string;
-  onImageUpload: (image: string) => void;
+  onImageUpload?: (image: string) => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ profileImage, onImageUpload }) => {
@@ -38,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({ profileImage, onImageUpload }) => {
         ctx.drawImage(img, 0, 0, width, height);
         // Comprime para JPEG com 80% de qualidade para garantir que caiba no localStorage (limite ~5MB)
         const compressedBase64 = canvas.toDataURL('image/jpeg', 0.8);
-        onImageUpload(compressedBase64);
+        if (onImageUpload) onImageUpload(compressedBase64);
       }
     };
   };
@@ -109,18 +109,26 @@ const Hero: React.FC<HeroProps> = ({ profileImage, onImageUpload }) => {
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
                 
-                {/* Botão de Upload Discreto */}
-                <button 
-                  onClick={triggerUpload}
-                  className="absolute bottom-4 right-4 p-3 bg-white/80 backdrop-blur-md rounded-full shadow-lg border border-white/50 text-slate-700 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-blue-900 z-20 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  title="Alterar foto de perfil"
-                  aria-label="Alterar foto de perfil"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </button>
+                {/* Botão de Upload Discreto com Tooltip */}
+                <div className="absolute bottom-4 right-4 group/tooltip">
+                  <button 
+                    onClick={triggerUpload}
+                    className="p-3 bg-white/80 backdrop-blur-md rounded-full shadow-lg border border-white/50 text-slate-700 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-blue-900 z-20 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500 relative"
+                    aria-label="Click to change photo"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </button>
+                  
+                  {/* Tooltip Stylized */}
+                  <span className="absolute bottom-full right-0 mb-2 whitespace-nowrap px-2 py-1 bg-slate-900 text-white text-[10px] rounded opacity-0 group-hover/tooltip:opacity-100 transition-opacity pointer-events-none translate-y-1 group-hover/tooltip:translate-y-0 duration-200 z-30">
+                    Click to change photo
+                    <span className="absolute top-full right-4 -mt-1 border-4 border-transparent border-t-slate-900" aria-hidden="true"></span>
+                  </span>
+                </div>
+
                 <input 
                   type="file" 
                   ref={fileInputRef} 

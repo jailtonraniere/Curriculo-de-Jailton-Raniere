@@ -20,3 +20,11 @@ export interface Education {
   institution: string;
   details?: string;
 }
+
+export interface TimelineEntry {
+  period: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  highlights?: string[];
+}

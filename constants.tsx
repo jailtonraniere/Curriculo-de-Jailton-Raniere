@@ -1,5 +1,5 @@
 
-import { Project, Experience, Education } from './types';
+import { Project, Experience, Education, TimelineEntry } from './types';
 
 export const PROJECTS: Project[] = [
   {
@@ -96,6 +96,63 @@ export const EXPERIENCES: Experience[] = [
       'Gestão de projetos públicos complexos e intersetoriais.',
       'Programas de inclusão social e digital em larga escala.'
     ]
+  }
+];
+
+export const TIMELINE_ENTRIES: TimelineEntry[] = [
+  {
+    period: '2020 – atual',
+    title: 'Transformação Digital e Inovação Pública',
+    subtitle: 'Prefeitura do Recife',
+    description: 'Atuação estratégica em projetos de modernização e impacto social.',
+    highlights: [
+      'Transformação digital de serviços públicos',
+      'Inovação social e GovTech',
+      'Plataformas digitais e integração de dados',
+      'Inclusão digital e políticas públicas digitais'
+    ]
+  },
+  {
+    period: '2018 – 2020',
+    title: 'Coordenação',
+    subtitle: 'Projeto Aprendiz Recife',
+    description: 'Coordenação de projeto de inserção de jovens em situação de vulnerabilidade no mundo do trabalho, por meio da Lei da Aprendizagem.'
+  },
+  {
+    period: '2016 – 2020',
+    title: 'Apoio à Coordenação',
+    subtitle: 'ACESSUAS Trabalho',
+    description: 'Atuação no fortalecimento do acesso ao mundo do trabalho para populações em situação de vulnerabilidade social.'
+  },
+  {
+    period: '2014 – 2018',
+    title: 'Interlocutor Municipal',
+    subtitle: 'PRONATEC Brasil Sem Miséria',
+    description: 'Atuação na articulação entre políticas de assistência social, educação profissional e inclusão produtiva.'
+  },
+  {
+    period: '2013 – atual',
+    title: 'Assistência Social e Políticas Públicas',
+    subtitle: 'Prefeitura do Recife',
+    description: 'Atuação contínua em programas estruturantes da política de assistência social.',
+    highlights: [
+      'Inclusão social e produtiva',
+      'Articulação intersetorial',
+      'Gestão de programas e projetos',
+      'Fortalecimento institucional'
+    ]
+  },
+  {
+    period: '2010 – 2012',
+    title: 'Apoio Administrativo',
+    subtitle: 'Conselho Tutelar e Centro Social Urbano',
+    description: 'Atuação no suporte à gestão, atendimento institucional e apoio às políticas de proteção social.'
+  },
+  {
+    period: '2008 – 2010',
+    title: 'Cadastrador',
+    subtitle: 'Prefeitura do Recife',
+    description: 'Atuação inicial em políticas públicas e serviços sociais, com foco em atendimento ao cidadão e serviços administrativos.'
   }
 ];
 
