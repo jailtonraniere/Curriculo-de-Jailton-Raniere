@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
               Estou aberto a parcerias, cooperação técnica e consultoria estratégica em projetos de <span className="text-white font-medium underline underline-offset-8 decoration-blue-500/30">Inovação Social</span> e transformação digital.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 mb-16 lg:mb-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 lg:gap-14 mb-16 lg:mb-20">
               <a 
                 href="https://wa.me/5581995078087" 
                 target="_blank"
@@ -53,6 +53,23 @@ const Contact: React.FC = () => {
                 <div className="flex flex-col">
                   <span className="text-xl lg:text-2xl text-white font-bold group-hover/link:text-blue-500 transition-colors tracking-tight">jailtonraniere@gmail.com</span>
                   <span className="text-[10px] text-slate-500 font-black uppercase tracking-[0.3em] mt-2">E-mail Institucional</span>
+                </div>
+              </a>
+
+              <a 
+                href="https://linkedin.com/in/jailton-raniere-a14240b5/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/link flex items-center space-x-6 lg:space-x-8 focus:outline-none"
+              >
+                <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white/5 rounded-[1.5rem] flex items-center justify-center group-hover/link:bg-[#0077b5] group-hover/link:scale-110 transition-all duration-300">
+                  <svg className="w-7 h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl lg:text-2xl text-white font-bold group-hover/link:text-[#0077b5] transition-colors tracking-tight">LinkedIn</span>
+                  <span className="text-[10px] text-slate-500 font-black uppercase tracking-[0.3em] mt-2">Perfil Profissional</span>
                 </div>
               </a>
             </div>
