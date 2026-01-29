@@ -16,13 +16,13 @@ const Projects: React.FC<ProjectsProps> = ({ isAdmin, projects, onUpdate }) => {
   };
 
   return (
-    <section id="projetos" className="py-32 bg-white scroll-mt-20 relative overflow-hidden">
-      <div className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 text-[25vw] font-black text-slate-50 select-none pointer-events-none uppercase tracking-tighter">
+    <section id="projetos" className="py-20 lg:py-32 bg-white scroll-mt-20 relative overflow-hidden">
+      <div className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 text-[20vw] font-black text-slate-50 select-none pointer-events-none uppercase tracking-tighter">
         IMPACT
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="mb-24">
+        <div className="mb-16 lg:mb-20">
           <div className="relative inline-block">
              <span className="text-blue-900 font-bold uppercase tracking-[0.5em] text-[10px] block mb-3">Portfolio Digital</span>
              <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight">Projetos</h2>
@@ -30,7 +30,7 @@ const Projects: React.FC<ProjectsProps> = ({ isAdmin, projects, onUpdate }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
           {projects.map((project) => (
             <ProjectCard 
               key={project.id} 

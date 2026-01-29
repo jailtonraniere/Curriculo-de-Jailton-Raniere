@@ -15,14 +15,19 @@ const Competencies: React.FC<CompetenciesProps> = ({ isAdmin, competencies, onUp
   };
 
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-20 lg:py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl font-bold text-slate-900 mb-12">Competências Estratégicas</h2>
-        <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+        <div className="mb-12 lg:mb-16">
+          <span className="text-blue-900 font-black uppercase tracking-[0.5em] text-[10px] block mb-4">Expertise Técnica</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">Competências Estratégicas</h2>
+          <div className="w-12 h-1.5 bg-green-700 mx-auto mt-6 rounded-full"></div>
+        </div>
+        
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl mx-auto">
           {competencies.map((skill, idx) => (
             <span 
               key={idx}
-              className="px-6 py-3 bg-white border border-slate-200 text-slate-700 text-sm font-medium rounded-full hover:bg-blue-900 hover:text-white hover:border-blue-900 transition-all cursor-default shadow-sm"
+              className="px-8 py-4 bg-white border border-slate-200 text-slate-700 text-sm md:text-base font-bold rounded-2xl hover:bg-blue-900 hover:text-white hover:border-blue-900 hover:scale-105 transition-all cursor-default shadow-sm tracking-wide"
               contentEditable={isAdmin}
               onBlur={(e) => handleEdit(idx, e.currentTarget.innerText)}
               suppressContentEditableWarning
