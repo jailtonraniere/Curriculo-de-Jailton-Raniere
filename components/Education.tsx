@@ -1,8 +1,20 @@
 
 import React from 'react';
-import { EDUCATION } from '../constants';
+import { Education as EducationType } from '../types';
 
-const Education: React.FC = () => {
+interface EducationProps {
+  isAdmin: boolean;
+  education: EducationType[];
+  onUpdate: (newEdu: EducationType[]) => void;
+}
+
+const Education: React.FC<EducationProps> = ({ isAdmin, education, onUpdate }) => {
+  const handleEdit = (index: number, field: keyof EducationType, value: string) => {
+    const newEdu = [...education];
+    newEdu[index] = { ...newEdu[index], [field]: value };
+    onUpdate(newEdu);
+  };
+
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,14 +26,33 @@ const Education: React.FC = () => {
             </p>
           </div>
           <div className="lg:col-span-2 space-y-8">
-            {EDUCATION.map((edu, idx) => (
+            {education.map((edu, idx) => (
               <div key={idx} className="flex flex-col pb-8 border-b border-slate-100 last:border-0">
-                <h3 className="text-xl font-bold text-slate-900">{edu.degree}</h3>
-                <div className="flex items-center text-blue-900 font-medium mt-1">
+                <h3 
+                  className="text-xl font-bold text-slate-900"
+                  contentEditable={isAdmin}
+                  onBlur={(e) => handleEdit(idx, 'degree', e.currentTarget.innerText)}
+                  suppressContentEditableWarning
+                >
+                  {edu.degree}
+                </h3>
+                <div 
+                  className="flex items-center text-blue-900 font-medium mt-1"
+                  contentEditable={isAdmin}
+                  onBlur={(e) => handleEdit(idx, 'institution', e.currentTarget.innerText)}
+                  suppressContentEditableWarning
+                >
                   <span>{edu.institution}</span>
                 </div>
                 {edu.details && (
-                  <p className="text-slate-500 text-sm mt-2">{edu.details}</p>
+                  <p 
+                    className="text-slate-500 text-sm mt-2"
+                    contentEditable={isAdmin}
+                    onBlur={(e) => handleEdit(idx, 'details', e.currentTarget.innerText)}
+                    suppressContentEditableWarning
+                  >
+                    {edu.details}
+                  </p>
                 )}
               </div>
             ))}
